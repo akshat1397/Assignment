@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // map to names
+
+        let john = { name: "John", age: 25 };
+        let pete = { name: "Pete", age: 30 };
+        let mary = { name: "Mary", age: 28 };
+
+        console.log(john);
+        console.log(pete);
+        console.log(mary);
+
+
+        let users = [john, pete, mary];
+        console.log(users);
+
+        let names = users.map(item => item.name);
+        console.log(names);
+
+    </script>
+</body>
+
+</html>
