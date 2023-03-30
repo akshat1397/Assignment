@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Product</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th> User ID</th>
+            <th> ID</th>
+            <th> Title</th>
+            <th> body</th>
+        </tr>
+        <tbody id="showdata"></tbody>
+    </table>
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/posts').then((res)=>res.json()).then((response)=>{
+            console.log(response);
+        HTMLDATA = ''
+        response.forEach(element => {
+            HTMLDATA+= `<tr>
+                <td>${element.userId}</td>
+                <td>${element.id}</td>
+                <td>${element.title}</td>
+                <td>${element.body}</td>
+                </tr>`
+        });
+        console.log(HTMLDATA);
+        document.querySelector('#showdata').innerHTML = HTMLDATA
+        }).catch((ErrorHndl)=>{
+            console.log(ErrorHndl);
+        })
+    </script>
+</body>
+</html>

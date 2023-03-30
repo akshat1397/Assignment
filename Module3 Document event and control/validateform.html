@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+    <link rel="icon" href="images/registration-form.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #bfbfbf;
+            box-sizing: border-box;
+        }
+
+        i {
+            background-color: white;
+            padding: 1px;
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" onsubmit=" return validation()">
+        <caption><b> REGISTRATION FORM</b> </caption>
+        <br><br> <br>
+        <tr>
+            <td> First Name:</td>
+            <td> <i class="fa-solid fa-user"></i> <input type="text" placeholder="First Name" id="fname"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" onkeydown="FirstNameValid(this,'ferror')">
+                <span id="ferror"></span>
+            </td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Last Name:</td>
+            <td><i class="fa-solid fa-user"></i> <input type="text" placeholder="Last Name" id="lname"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" onkeydown="LastNameValid(this,'lerror')">
+                <span id="lerror"></span>
+            </td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> </i> Email:</td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td> <i class="fa-solid fa-envelope"></i><input type="email" placeholder="Email" id="email"
+                    style="width: 300px;padding: 5px 5px 5px 50px;" onkeydown="emailValid(this, 'eerror')">
+                <span id="eerror"></span>
+            </td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Mobile:</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td> <i class="fa-solid fa-phone"></i><input type="text" placeholder="Mobile" id="mobile"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" onkeydown="MobileValid(this,'merror')">
+                <span id="merror"></span>
+            </td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Gender:</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td> <input type="radio" value="Male"> Male</td>
+            <td> <input type="radio" value="Female"> Female</td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> DOB:</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa-solid fa-calendar-days"></i><input type="date" value="month"
+                style="width: 300px;padding: 5px 5px 5px 50px; " required>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Address:</td>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td><i class="fa-solid fa-location-dot"></i> <textarea style="width:300px; padding: 5px 5px 5px 50px;"
+                    id="address" required></textarea></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> City:</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td> <i class="fa-solid fa-city"></i><input type="text" placeholder="City"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" required></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Area Pin:</td>&nbsp;&nbsp;&nbsp;
+            <td><i class="fa-solid fa-address-book"></i> <input type="text" placeholder="Area Pin"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" required></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> State:</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td> <i class="fa-solid fa-address-book"> </i><input type="text" placeholder="State"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" required></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Qualification:</td>
+            <td> <i class="fa-solid fa-graduation-cap"></i><select name="Select Qualification"
+                    style="width: 200px; height: 30px; padding: 5px 5px 5px 50px;" required>
+                    <option> Select Qualification </option>
+                    <option> 12th </option>
+                    <option> B.E/BCOM </option>
+                    <option> M.E/MCOM</option>
+                </select></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Specilization:</td>
+            <td><input type="checkbox" name="spe" value="Computer Science"> Computer Science
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="spe" value="Information Technology">Information Technology
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="spe" value="Computer Architecture"> Computer Architecture
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" name="spe" value="Tele Communication"> Tele Communication
+            </td>
+        </tr>
+        <br><br>
+        <tr>
+            <td> Password:</td>&nbsp;&nbsp;
+            <td><i class="fa-solid fa-user"></i><input type="password" placeholder="Password" id="pwd"
+                    style="width: 300px; padding: 5px 5px 5px 50px;" onkeydown="(PwdValid(this, 'perror'))">
+                <span id="perror"></span>
+            </td>
+        </tr>
+        <br><br>
+        <tr>
+            <td><input type="SUBMIT" name="SUBMIT" value="REGISTERED"
+                    style="background-color:green; color:white; padding: 10px; cursor: pointer;">
+            </td>
+        </tr>
+    </form>
+</body>
+
+</html>
+<script>
+    //  Basic Validation //
+    function validation() {
+        let fname = document.getElementById('fname').value;
+        if (fname == "") {
+            alert("Please Enter Your First Name!");
+            document.getElementById('fname').focus();
+            return false;
+        }
+
+        let lname = document.getElementById('lname').value;
+        if (lname == "") {
+            alert("Please Enter Your Last Name!");
+            document.getElementById('lname').focus();
+            return false;
+        }
+
+        let email = document.getElementById('email').value;
+        if (email == "") {
+            alert("Please Enter Your email!");
+            document.getElementById('email').focus();
+            return false;
+        }
+
+        let mobile = document.getElementById('mobile').value;
+        if (mobile == "") {
+            alert("Please Enter Your Mobile!");
+            document.getElementById('mobile').focus();
+            return false;
+        }
+
+        let pwd = document.getElementById('pwd').value;
+        if (pwd == "") {
+            alert("Please Enter Your Password!");
+            document.getElementById('pwd').focus();
+            return false;
+        }
+    }
+    //  Advanced  Validation //
+    function FirstNameValid(input, msg) {
+        var name = /^[a-zA-Z].{3,6}$/
+        if (name.test(input.value)) {
+            document.getElementById(msg).innerHTML = "";
+            return true;
+        }
+        else {
+            document.getElementById(msg).innerHTML = "3 to 6 Alphabets are allowed";
+            return false;
+        }
+    }
+    function LastNameValid(input, msg) {
+        var name = /^[a-zA-Z].$/
+        if (name.test(input.value)) {
+            document.getElementById(msg).innerHTML = "";
+            return true;
+        }
+        else {
+            document.getElementById(msg).innerHTML = "3 to 6 Alphabets are allowed";
+            return false;
+        }
+    }
+    function emailValid(input, msg) {
+        var email = /^([a-z0-9.-_])+@+([a-z0-9.-_]).([a-z]{3})/
+        if (email.test(input.value)) {
+            document.getElementById(msg).innerHTML = ""
+            return true;
+        }
+        else {
+            document.getElementById(msg).innerHTML = "Please Enter Proper Email ID";
+            return false;
+        }
+    }
+    function MobileValid(input, msg) {
+        var mobile = /^[0-9]{10}$/
+        if (mobile.test(input.value)) {
+            document.getElementById(msg).innerHTML = "";
+            return true;
+        }
+        else {
+            document.getElementById(msg).innerHTML = "Please Enter Valid Mobile Number";
+            return false;
+        }
+    }
+    function PwdValid(input, msg) {
+        var pwd = /^([a-zA-Z0-9]){5,7}$/
+        if (pwd.test(input.value)) {
+            document.getElementById(msg).innerHTML = ""
+            return true;
+        }
+        else {
+            document.getElementById(msg).innerHTML = "Please Enter Proper Password";
+            document.getElementById(msg).style.color = "red";
+            return false;
+        }
+    }
+</script>

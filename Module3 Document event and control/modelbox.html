@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        .one{
+             margin-left: 50px;
+            margin-top: 50px;
+            height: 40px;
+            width: 100px;
+            cursor: pointer; 
+        }
+        .red{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            display: none;
+        }
+        .two{
+            margin-left: 150px;
+            margin-top: 50px;
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+        }
+        .blue{
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+            margin-left: 100px;
+            display: none;
+        }
+        .three{
+            margin-left: 200px;
+            margin-top: 50px;
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+        }
+        .green{
+            height: 200px;
+            width: 200px;
+            background-color: green;
+            margin-left: 150px;
+            display: none;
+        }
+
+    </style>
+    <script>
+        function red(){
+            console.log("btn called");
+         let b = document.getElementById("red");
+         console.log(b);
+         if(b.style.display=="block")
+         {
+             b.style.display="none";
+         }
+         else
+         {
+             b.style.display="block";
+         }
+        }
+     
+        
+        function blue(){
+         let c =document.getElementById("blue");
+         if (c.style.display == "block")
+         {
+             c.style.display = "none";
+         }
+         else{
+             c.style.display = "block";
+         }
+        }
+     
+       
+        function green(){
+         let d =document.getElementById("green");
+         if (d.style.display == "block")
+         {
+             d.style.display = "none";
+         }
+         else{
+             d.style.display = "block";
+         }
+        }
+     </script>
+</head>
+<body>
+    <div class="main">
+        <div class="main1">
+            <button class="one" onclick="red()"> RED</button>
+            <br><br><br>
+            <div class="red "id="red"></div>
+        </div>
+        <div class="main2">
+            <button class="two" onclick="blue()"> BLUE </button>
+            <br><br><br>
+            <div class="blue" id="blue"></div>
+        </div>
+        <div class="main3">
+            <button class="three" onclick=" green()"> GREEN </button>
+            <br><br><br>
+            <div class="green" id="green"></div>
+        </div>
+    </div>
+      
+</body>
+</html>
