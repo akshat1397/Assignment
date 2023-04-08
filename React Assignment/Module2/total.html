@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub Total</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        table thead th{
+            padding: 10px 10px;
+            font-size: 20px;
+            background-color: tomato;
+        }
+        tr td{
+            padding: 8px 12px;
+            font-size: 18px;
+            
+        }
+        tr .shirt{
+            background-color: tomato;
+        }
+        tr td input[type="number"]{
+            width: 40px;
+            padding: 5px;
+            border-radius: 10px;
+            font-size: 18px;
+            
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            display: none;
+        }
+        #total{
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table border="1" align="center">
+            <thead>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Value</th>
+                <th>Sub Total</th>
+            </thead>
+            <tr>
+                <td class="shirt">Shirt</td>
+                <td><input type="number" onchange="qtyFunction(this)" ></td>
+                <td><input type="number" onchange="priceFunction(this)"></td>
+                <td class="subtotal">0</td>
+            </tr>
+            <tr>
+                <td class="shirt">Cold Drink</td>
+                <td><input type="number" onchange="qtyFunction(this)" ></td>
+                <td><input type="number" onchange="priceFunction(this)"></td>
+                <td class="subtotal">0</td>
+            </tr>            
+
+            <tr>
+                <td colspan="3" style="font-size: 19px; font-weight: bold;">Total</td>
+                <td id="total">0</td>
+            </tr>
+        </table>
+        
+    </div>
+</body>
+</html>
+
+<script>
+    let total = document.getElementById('total');
+    let subtotal = document.getElementsByClassName('subtotal');
+    function qtyFunction(q){
+        let pValue = q.parentElement.parentElement.children[2].children[0].value;
+        q.parentElement.parentElement.children[3].innerHTML = q.value*pValue; 
+        
+        
+        let cal = 0;
+        for(let i=0; i < subtotal.length; i++ ){
+            cal += parseInt(subtotal[i].innerText);
+            
+        }
+        total.innerHTML = cal;
+        
+    }
+    
+    function priceFunction(p){
+       qValue = p.parentElement.parentElement.children[1].children[0].value;       
+       p.parentElement.parentElement.children[3].innerHTML = p.value*qValue;
+
+       let cal = 0;
+        for(let i=0; i < subtotal.length; i++ ){
+            cal += parseInt(subtotal[i].innerText);
+            
+        }
+        total.innerHTML = cal;
+    }
+
+</script>
